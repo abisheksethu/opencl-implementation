@@ -191,7 +191,7 @@ const cl_image_format supported_image_formats[] = {
 void
 pocl_basic_init_device_ops(struct pocl_device_ops *ops)
 {
-  ops->device_name = "basic";
+  ops->device_name = "xillybus";
 
   ops->init_device_infos = pocl_basic_init_device_infos;
   ops->probe = pocl_basic_probe;
@@ -217,7 +217,7 @@ pocl_basic_init_device_ops(struct pocl_device_ops *ops)
 void
 pocl_basic_init_device_infos(struct _cl_device_id* dev)
 {
-  dev->type = CL_DEVICE_TYPE_CPU;
+  dev->type = CL_DEVICE_TYPE_ACCELERATOR;
   dev->vendor_id = 0;
   dev->max_compute_units = 0;
   dev->max_work_item_dimensions = 3;
@@ -438,20 +438,59 @@ void
 pocl_basic_read (void *data, void *host_ptr, const void *device_ptr, 
                  size_t offset, size_t cb)
 {
-  if (host_ptr == device_ptr)
+  int rc;
+  int fd;
+  int length;
+  length=(int)cb;
+  fd = open("/dev/xillybus_read_32", O_RDONLY);
+  if (fd < 0) {
+    printf("Failed to open read devfile\n");
     return;
-
-  memcpy (host_ptr, device_ptr + offset, cb);
+  }
+  rc = read(fd, host_ptr, length);
+  // printf("length of Received data is %d\n", rc );
+  if ((rc < 0) || (errno == EINTR)) {
+    printf("Failed to read devfile in pocl_basic_read\n");
+    close(fd);
+    return;
+  }
+  if (rc == 0) {
+    printf("Reached EOF in read\n");
+    close(fd);
+    return;
+  }
+  // close(fd);
+  return ;
 }
 
 void
 pocl_basic_write (void *data, const void *host_ptr, void *device_ptr, 
                   size_t offset, size_t cb)
 {
-  if (host_ptr == device_ptr)
-    return;
+  int rc;
+  int fd;
+  int length;
 
-  memcpy (device_ptr + offset, host_ptr, cb);
+  length=(int)cb;
+  fd = open("/dev/xillybus_write_32", O_WRONLY); 
+  if (fd < 0) {
+    printf("Failed to open write devfile\n");
+    return;
+  }
+  rc = write(fd, host_ptr, length);
+  // printf("length of data sent.. %d\n", rc);
+  if ((rc < 0) || (errno == EINTR)) {
+    printf("Failed to write devfile\n");
+    close(fd);
+    return;
+  }
+  if (rc == 0) {
+    printf("Reached EOF in write\n");
+    close(fd);
+    return;
+  }
+  // close(fd);
+  return ;
 }
 
 
