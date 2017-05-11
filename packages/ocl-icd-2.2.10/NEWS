@@ -1,0 +1,397 @@
+
+Version 2.2.10
+==============
+Giuseppe Bilotta (2):
+      Suppress warning due to shadowed variable name
+      Static-const-ify ICD loader info strings
+
+Martin Kelly (2):
+      Typo fix
+      Fallback to dispatch table for clGetPlatformInfo
+
+Vincent Danjean (3):
+      Merge pull request #2 from surround-io/master
+      By default, use platforme specific clGetPlatformInfo
+      Release 2.2.10
+
+Version 2.2.9
+=============
+Brice Videau (1):
+      Update clGetICDLoaderInfoOCLICD to report version 2.1.
+
+Vincent Danjean (3):
+      Report the correct supported OpenCL version when asked
+      Add support for OPENCL_VENDOR_PATH envvar
+      Release 2.2.9
+
+Version 2.2.8
+=============
+Brice Videau (10):
+      Added missing EGL entries.
+      Added missing clGetKernelSubGroupInfoKHR.
+      Fixed indentation.
+      Added OpenCL 2.1 as comments.
+      Switched khronos headers to OpenCL 2.1.
+      Fixed typo in clEnqueueAcquireEGLObjectsKHR definition.
+      CL/cl_egl.h is needed to build EGL interfaces.
+      OpenCL headers needlessly include EGL headers.
+      ICD should be compliant regarding extensions.
+      Order for OpenCL 2.1 is finally known.
+
+Vincent Danjean (10):
+      Explicitly set the revision date in the documentation
+      cleanup doc
+      [test] avoid external problems in tests
+      Use internal symbols to avoid conflict with loaded ICD
+      Update copyright notices
+      Remove 2.0 OpenCL headers
+      Avoid to hardcode at several place the required OpenCL headers version
+      improve clGetExtensionFunctionAddress{,ForPlatform}
+      Fix guards in ocl_icd.h
+      Release 2.2.8 (support OpenCL 2.1)
+
+Version 2.2.7
+=============
+
+Vincent Danjean (2):
+      Also use real prototype in weak test functions
+      New release
+
+Version 2.2.6
+=============
+
+Vincent Danjean (4):
+      Fix and improve testsuite
+      allows to avoid the platform sort and extends the testsuite
+      Improve documentation (OCL_ICD_PLATFORM_SORT and OCL_ICD_DEFAULT_PLATFORM)
+      Release 2.2.6
+
+Version 2.2.5
+=============
+
+Giuseppe Bilotta (5):
+      Fix a few typos
+      Whitespace cleanup
+      Remove useless vendor_icd.first_platform
+      Count GPU, CPU and ALL devices on newly inserted platforms
+      Sort platforms by number of GPU, CPU and ALL devices
+
+Vincent Danjean (4):
+      Sort platforms in one pass
+      Correctly handle clGetDeviceIDs in generator and tests
+      [BUG] call the function when the return type is void
+      Release 2.2.5
+
+Version 2.2.4
+=============
+
+Brice Videau (1):
+      Consistency.
+
+Vincent Danjean (4):
+      Avoid using system-wide vendors files at test time
+      avoid loading ICD at library init time
+      Improve tests
+      Fix initialization in case of default platform use
+      Release 2.2.4
+
+Version 2.2.3
+=============
+
+Vincent Danjean (2):
+      Fix numbers in unknown members of dispatch table to avoid to reuse one
+      Release 2.2.3
+
+Version 2.2.2
+=============
+
+Vincent Danjean (3):
+      Avoid warnings with 2.0 OpenCL headers when using 1.2 deprecated functions
+      Avoid using types not supported by OpenCL headers in ocl_icd.h
+      Release 2.2.2
+
+Version 2.2.1
+=============
+
+Vincent Danjean (2):
+      add official Khronos OpenCL headers into repo
+      Release 2.2.1
+
+Version 2.2.0
+=============
+
+Aaron Watry (2):
+      Fix directory resource leak
+      Don't read past the potential end of the lib_path string
+
+Brice Videau (4):
+      Added OpenCL 2.0 functions. Hopefully at the right position (to confirm).
+      Generator can process 2.0 functions.
+      Added up to date headers package.
+      Commented 2.0 OpenCL API.
+
+Vincent Danjean (5):
+      Remove -Werror for AM_CPPFLAGS by default
+      Interface 2.0
+      Bug fix in code path rarely used
+      Bump versions
+      Release 2.2.0
+
+Version 2.1.3
+=============
+
+Brice Videau (3):
+      Moved some declarations to the header as they are needed in the generated
+	part now.
+      If we have no valid platforms non can be valid.
+      In case a NULL platform is passed to the loader, the default platform is
+	selected if it exists and is valid.
+
+Vincent Danjean (5):
+      Rewrote initialization comments
+      All generated file ends with "_gen" suffix (but installed once)
+      [build] add tests for default platform selection
+      Refactor code for selection of default platform
+      Release 2.1.3
+
+Version 2.1.2
+=============
+
+Brice Videau (5):
+      Indentation fix
+      Check for platform validity. Could be improved.
+      Check cl_platform_id in clCreateContext and clCreateContextFromType
+      Code cleanup.
+      Added platform checking for clGetGLContextInfoKHR.
+
+Vincent Danjean (2):
+      Refactor code and compilation fix in clGetGLContextInfoKHR
+      Release 2.1.2
+
+Version 2.1.1
+=============
+
+Vincent Danjean (2):
+      Fix missing NULL argument handling in clCreateContext
+      Release 2.1.1
+
+Version 2.1.0
+=============
+
+Brice Videau (1):
+      Added NULL pointers handling, should not segfault anymore on NULL pointer.
+
+Vincent Danjean (2):
+      Refactor generated code
+      Release 2.1.0
+
+Version 2.0.4
+=============
+
+Brice Videau (1):
+      Include guard for ocl_icd.h
+
+Vincent Danjean (3):
+      Fix configure.ac for automake 1.13
+      By default, show all compile commands
+      Release 2.0.4
+
+Version 2.0.3
+=============
+
+Brice Videau (1):
+      Small potential bugfix and hopefull norm interpretation.
+
+Vincent Danjean (2):
+      Fix PATH for "make installcheck"
+      Release 2.0.3
+
+Version 2.0.2
+=============
+
+Brice Videau (3):
+      Added windows specific functions to the table
+      fix bug when loading a correct icd *after* rejecting one
+      New version
+
+Vincent Danjean (10):
+      Fix bug for dumping the internal ICD structure
+      clGetExtensionFunctionAddress should return only extensions
+      cleanup code
+      Implement clGetICDLoaderInfoOCLICD extension with a test case
+      [build] lower requirement on autoconf
+      Default platform is now specified
+      Add clTerminateContextKHR in testsuite
+      cleanup icd_generator
+      refactor icd_generator
+      icd_generator: still cleanup
+      Update NEWS file
+
+Version 2.0.1
+=============
+
+Vincent Danjean (4):
+      [doc] fix typo found by lintian
+      [doc] remove unused synopsis
+      [doc] fix another typo found by lintian
+      New release
+
+Version 2.0
+=============
+
+Brice Videau (1):
+      Found entry 92, clCreateEventFromGLsyncKHR.
+
+Vincent Danjean (16):
+      Check the avaibility of OpenCL headers (version 1.2)
+      include stdlib.h for getenv and atoi
+      Allow OCL_ICD_VENDORS to directly provide the ICD library name to load
+      Migrate to autotest
+      Update testsuite with the new entry
+      Fix re-entrancy in DEBUG mode while initializing.
+      Fix log with strange behavior of clGetExtensionFunctionAddressForPlatform on Intel
+      Build test programs before entering tests/ subdir
+      fix 'make distcheck'
+      Force order in output of check programs
+      Improve OCL_ICD_VENDORS envvar
+      Cleanup and fix debug ifdef
+      Workaround for a bug in intel ICD with optimus
+      Add a test for the Intel workaround
+      Add documentation, mainly for envvar
+      New release
+
+Version 1.5
+=============
+
+Brice Videau (1):
+      Code factoring and race condition reduction.
+
+Vincent Danjean (4):
+      Merge branch 'master'
+      Fix race in initialization on pthread programs
+      Make initialisation more robust
+      New release
+
+Version 1.4
+=============
+
+Vincent Danjean (9):
+      [debug] improve platform dump
+      [build] cleanup code
+      [build] ignore warnings of OpenCL headers even with -Werror
+      [build] avoid deprecated function warning in debug
+      [fix] Use OpenCL supported version as version in OpenCL.pc
+      [bug fix] Initialize the library in all possible first functions
+      [bug fix] clCreateContextFromType can have a NULL properties
+      [debug] More debug info
+      New release
+
+Version 1.3
+=============
+
+Brice Videau (1):
+      Added -Wno-deprecated-declarations options to compile files that need it.
+
+Vincent Danjean (5):
+      Fix compilation when updating database
+      Merge branch 'master' of git+ssh://scm.forge.imag.fr/scmrepos/git/ocl-icd/ocl-icd
+      Add a pkg-config file for ICD libraries
+      Check if compiler support flags to disable expected warnings
+      New release
+
+Version 1.2.1
+=============
+
+Vincent Danjean (4):
+      Correctly remove created directories
+      Do not distribute built sources
+      Distribute all required files
+      New release without autogenerated files
+
+Version 1.2
+=============
+
+Brice Videau (1):
+      Added clGetGLContextInfoKHR to the loader.
+
+Vincent Danjean (11):
+      Fix Changelog
+      Add a easy way to disable DEBUG in Makefile
+      Improve debug mode
+      Add support for using alternate vendors configuration directory
+      Swich to autotools
+      Correct iteration in vendors/ directory
+      Cleanup debug, refactor libdummycl
+      Merge remote-tracking branch 'origin/master'
+      cleanup code and add additionnal tests
+      Whitelist known missing functions in ICD Loader
+      New release
+
+Version 1.1
+=============
+
+Vincent Danjean (10):
+      Add missing include in ocl_icd_test.c
+      Format YAML output ourself
+      Rename files and cleanup includes
+      Cleanup again
+      Add visibility("hidden") for all but public symbols
+      Rewrite ICD loader
+      Cleanup debug
+      Do not look for *EXT or *KHR functions by name
+      Find a new entry manually (74) and another one (92) suspected
+      Bump version to 1.1
+
+Version 1.0.1
+=============
+
+Vincent Danjean (2):
+      Correctly detect no platforms when no /etc/OpenCL/vendors directory exists
+      New version
+
+Version 1.0
+===========
+Vincent Danjean (6):
+      Add a message in ocl_icd_test when no plateform is found
+      Cleanup and comment the Makefile
+      cleanup ocl_icd.h
+      Generate and use a map symbol file
+      Release 1.0
+      Real release 1.0 (changelog updated)
+
+Brice Videau (5):
+      Copyright change.
+      Added clUnloadCompiler at its most propable place in the table : 31.
+      Added clGetExtensionFunctionAddress at its most probable place in the table : 65.
+      RTLD_DEEPBIND seemed to cause problems with intelocl and BigDFT.
+      Added version and symbol association.
+
+Version 1.0 beta2
+=================
+Vincent Danjean (14):
+      Rewrite Makefile
+      cleanup Makefile, add support for install with DESTDIR
+      Add .gitignore file
+      update Makefile
+      Force sorted order in yaml file
+      Add weak functions
+      Fix problem with special functions
+      Update database from OpenCL 1.2 headers and AMD implementation
+      Cleanup clean/distclean Makefile rules
+      force deep binding so that OpenCL implementation use their own functions
+      Add 'install', 'dist', 'distcheck' targets in Makefile
+      Add myself in copyright
+      Fix soname
+      release 1.0 beta2
+
+Brice Videau (9):
+      First version
+      Added option to generate from database.
+      Added License and bugfixes.     Clean up of Makefile. (Still work to do).
+      Added a clGetPlatformInfo template in generated bindings.
+      Bugfix...
+      Bugfix.
+      Added README.
+      In order database.
+      Fixed typo in Makefile
+

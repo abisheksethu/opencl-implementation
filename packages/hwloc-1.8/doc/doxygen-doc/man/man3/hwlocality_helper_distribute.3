@@ -1,0 +1,49 @@
+.TH "Distributing items over a topology" 3 "Mon Nov 18 2013" "Version 1.8" "Hardware Locality (hwloc)" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Distributing items over a topology \- 
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "static inline void \fBhwloc_distributev\fP (\fBhwloc_topology_t\fP topology, \fBhwloc_obj_t\fP *root, unsigned n_roots, \fBhwloc_cpuset_t\fP *cpuset, unsigned n, unsigned until)"
+.br
+.ti -1c
+.RI "static inline void \fBhwloc_distribute\fP (\fBhwloc_topology_t\fP topology, \fBhwloc_obj_t\fP root, \fBhwloc_cpuset_t\fP *set, unsigned n, unsigned until)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Function Documentation"
+.PP 
+.SS "static inline void hwloc_distribute (\fBhwloc_topology_t\fPtopology, \fBhwloc_obj_t\fProot, \fBhwloc_cpuset_t\fP *set, unsignedn, unsigneduntil)\fC [static]\fP"
+
+.SS "static inline void hwloc_distributev (\fBhwloc_topology_t\fPtopology, \fBhwloc_obj_t\fP *roots, unsignedn_roots, \fBhwloc_cpuset_t\fP *set, unsignedn, unsigneduntil)\fC [static]\fP"
+
+.PP
+Distribute \fCn\fP items over the topology under \fCroot\fP\&. Distribute \fCn\fP items over the topology under \fCroots\fP\&.
+.PP
+Array \fCcpuset\fP will be filled with \fCn\fP cpusets recursively distributed linearly over the topology under \fCroot\fP, down to depth \fCuntil\fP (which can be INT_MAX to distribute down to the finest level)\&.
+.PP
+This is typically useful when an application wants to distribute \fCn\fP threads over a machine, giving each of them as much private cache as possible and keeping them locally in number order\&.
+.PP
+The caller may typically want to also call \fBhwloc_bitmap_singlify()\fP before binding a thread so that it does not move at all\&.
+.PP
+\fBNote:\fP
+.RS 4
+This function requires the \fCroot\fP object to have a CPU set\&.
+.RE
+.PP
+This is the same as hwloc_distribute, but takes an array of roots instead of just one root\&.
+.PP
+\fBNote:\fP
+.RS 4
+This function requires the \fCroots\fP objects to have a CPU set\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Hardware Locality (hwloc) from the source code\&.
