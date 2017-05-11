@@ -72,5 +72,6 @@ The script hostapp/run.sh automates the test case for variable input length of 1
 
 **Timing graph for clEnqueueWriteBuffer**
 ![alt tag](https://github.com/abisheksethu/opencl-implementation/blob/master/host_app/clEnqueueWriteBuffer.jpg?raw=true)
+
 **Timing graph for clEnqueueReadBuffer**
 ![alt tag](https://github.com/abisheksethu/opencl-implementation/blob/master/host_app/clEnqueueReadBuffer.jpg?raw=true)
