@@ -43,6 +43,7 @@ In this project, we use pocl-0.11 version with llvm-3.6. To support llvm-3.6, ho
 * ocl-icd 2.2.10 (available only when compiled from source)
 * To build software package: cmake-3.7
 * other dependencies like libz-dev, libffi-dev, autoconf, libtool, ruby1.8-dev, libtinfo-dev
+* Timing and Profiling information using PAPI and XLWT
 
 Reference wiki page: <a href="https://github.com/umaurmi/OPENCL_EXAMPLES_ZEDBOARD/wiki/Installing-POCL-dependencies-on-Ubuntu-linux-based-targets" target="_blank">Installing-POCL-dependencies-on-Ubuntu-linux-based-targets</a>
 
@@ -66,7 +67,7 @@ The example uses a OpenCL Kernel that adds the input to itself. The respective x
 
 * **CPU as a device** : POCL_DEVICES=pthread 
 
-* **FPGA as a device** : export POCL_DEVICES=xillybus
+* **FPGA as a device** : POCL_DEVICES=xillybus
 
 The script hostapp/run.sh automates the test case for variable input length of 1K to 16K. The comparision of two APIs for pthread and xillybus are shown below. 
 
