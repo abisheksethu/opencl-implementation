@@ -52,7 +52,7 @@ All dependency packages are stored in this repository, we also developed a scrip
 
 **ACCELERATOR as a device**: 
 
-* The POCL software architecture has all its device layer implementation in pocl-0.11/lib/CL/devices. The CPU device implementation can be found in pthread. Similarly, POCL has provided a basic device implementation to add our custom device, which can be customized in pocl-0.11/lib/CL/devices/basic/basic.c. 
+* The POCL software architecture has device layer implementation in pocl-0.11/lib/CL/devices. The CPU device implementation can be found in pthread. Similarly, POCL has provided a basic device implementation to add our custom device, which can be customized in pocl-0.11/lib/CL/devices/basic/basic.c. 
 * We use xillybus linux drivers to develop basic device layer in POCL.
 * Currently, we support two OpenCL APIs clEnqueueWriteBuffer, clEnqueueReadBuffer. These APIs are independent of OpenCL Compiler implementation.
 * In POCL's basic layer, The above two API's corresponding hardware definition can be found in pocl_basic_read() and pocl_basic_write().
