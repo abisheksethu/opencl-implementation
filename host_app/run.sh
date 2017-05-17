@@ -7,6 +7,7 @@ make
 echo "Data logging for pthread device"
 
 export POCL_DEVICES=pthread
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
 for num1 in {1..16}
 do
