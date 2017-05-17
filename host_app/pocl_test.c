@@ -218,7 +218,7 @@ int main()  {
     correct = 0;
     for(i = 0; i < count; i++)
     {
-        check_results[i] = data[i]*(data[i]*(16*data[i]*data[i]-20)*data[i]+5);            
+        check_results[i] = data[i]+data[i];            
     }
     for(i = 0; i < count; i++)
     {        

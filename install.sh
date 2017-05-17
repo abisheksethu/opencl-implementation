@@ -39,14 +39,10 @@ if [ $(nm-tool | grep "State: connected" | wc -l) -ne 1 ]
   exit 7
 fi
 
-echo "--> Cloning OpenCL-implementation repository"
-cd $1
-git clone https://github.com/abisheksethu/opencl-implementation
-
 echo "--> apt-get dependencies for POCL"
 add-apt-repository ppa:ubuntu-toolchain-r/test
 apt-get update
-apt-get install git gcc-4.9 g++-4.9 libz-dev libffi-dev autoconf libtool ruby1.8-dev libtinfo-dev
+apt-get install gcc-4.9 g++-4.9 libz-dev libffi-dev autoconf libtool ruby1.8-dev libtinfo-dev
 update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 60 --slave /usr/bin/g++ g++ /usr/bin/g++-4.9
 
 echo "--> Installing cmake_3.7.1"
@@ -63,21 +59,17 @@ autoreconf -f -i
 make -j2
 make install
 
-echo "--> Installing ocl-icd-2.2.10"
-cd $1/packages/ocl-icd-2.2.10
-autoreconf -f -i
+echo "--> Installing papi"
+cd $1/packages/papi-5.4.1
 ./configure
 make -j2
 make install
 
-echo "--> Installing clang+llvm-3.6.0-armv7a-linux-gnueabihf"
-cd $1/packages/clang+llvm-3.6.0-armv7a-linux-gnueabihf
-
 echo "--> Configuration for POCL"
-echo /usr/local/lib/libpocl.so.1.7.0 > /etc/OpenCL/vendors/pocl.icd
-mkdir $POCL_DIR/pocl-0.11/build
-export PATH+=:$1/packages/clang+llvm-3.6.0-armv7a-linux-gnueabihf/bin
-cd $1/build
+cd $1/pocl-0.11/
+mkdir build
+export PATH=$PATH:$1/packages/clang+llvm-3.6.0-armv7a-linux-gnueabihf/bin
+cd $1/pocl-0.11/build
 cmake ..
 
 echo "--> Building POCL" 
@@ -85,5 +77,8 @@ make
 
 echo "--> Installing POCL"
 make install
+
+echo "--> Configuration for ICD loader"
+echo /usr/local/lib/libpocl.so.1.4.0 > /etc/OpenCL/vendors/pocl.icd
 
 exit 8
