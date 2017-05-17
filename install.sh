@@ -1,32 +1,9 @@
-#bin/bash
-
-POCL_DIR="$1"
-
-echo "--> Checking POCL_DIRECTORY"
-
-if [ $# -lt 1 ]
-then
-        echo "	*** Please enter a POCL_DIRECTORY location as a argument"
-        exit 3
-
-elif [ ! -e "$POCL_DIR" ]
-then
-        echo "	*** POCL_DIRECTORY does not exist!"
-        exit 4
-
-elif [ ! -d "$POCL_DIR" ]
-then
-        echo "	*** Not a POCL_DIRECTORY"
-        exit 5
-else
-        echo "	*** Path is valid"
-
-fi
+#!bin/bash/
 
 echo "--> Checking superuser permission"
 
 if [ $(id -u) -ne 0 ]
-  then echo "	*** Please run the script as superuser"
+  then echo "	*** run the script as superuser"
   echo "	"
   exit 6
 fi
@@ -34,7 +11,7 @@ fi
 echo "--> Checking Internet Connection"
 
 if [ $(nm-tool | grep "State: connected" | wc -l) -ne 1 ]
-  then echo "	*** Please Connect to internet"
+  then echo "	*** Connect to internet"
   	   echo "	"
   exit 7
 fi
@@ -46,30 +23,30 @@ apt-get install gcc-4.9 g++-4.9 libz-dev libffi-dev autoconf libtool ruby1.8-dev
 update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 60 --slave /usr/bin/g++ g++ /usr/bin/g++-4.9
 
 echo "--> Installing cmake_3.7.1"
-cd $1/packages/cmake_3.7.1
+cd ./packages/cmake_3.7.1
 ./bootstrap
 make -j2
 make install
 cmake --version
 
 echo "--> Installing hwloc-1.8"
-cd $1/packages/hwloc-1.8
+cd ./packages/hwloc-1.8
 autoreconf -f -i
 ./configure
 make -j2
 make install
 
 echo "--> Installing papi"
-cd $1/packages/papi-5.4.1
+cd ./packages/papi-5.4.1
 ./configure
 make -j2
 make install
 
 echo "--> Configuration for POCL"
-cd $1/pocl-0.11/
+cd ./pocl-0.11/
 mkdir build
-export PATH=$PATH:$1/packages/clang+llvm-3.6.0-armv7a-linux-gnueabihf/bin
-cd $1/pocl-0.11/build
+export PATH=$PATH:./packages/clang+llvm-3.6.0-armv7a-linux-gnueabihf/bin
+cd ./pocl-0.11/build
 cmake ..
 
 echo "--> Building POCL" 
