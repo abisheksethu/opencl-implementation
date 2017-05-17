@@ -58,4 +58,4 @@ make install
 echo "--> Configuration for ICD loader"
 echo /usr/local/lib/libpocl.so.1.4.0 > /etc/OpenCL/vendors/pocl.icd
 
-exit 8
+exit
