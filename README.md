@@ -18,7 +18,7 @@ This project describes the implementation of OpenCL standard for Zedboard using 
 Open Computing Language, OpenCL is a Open royalty-free standard for general purpose parallel programming across CPUs, GPUs and accelerators. It enables software developers to take full advantage of heterogeneous processing platforms.
 
 ### <a name="info-pocl"></a> 1.2: POCL
-Portable Computing Language, POCL is a MIT-licensed open source implementation of OpenCL standard. It can be easily adapted for new devices. OpenCL Compiler option are supported by using 
+Portable Computing Language, POCL aims to become a MIT-licensed open source implementation of OpenCL standard. It can be easily adapted for new devices. OpenCL Compiler option are supported by using 
 * Clang as an OpenCL C Frontend
 * LLVM for kernel compiler implementation
 * Easily targeted for a device with LLVM backend
