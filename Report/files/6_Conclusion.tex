@@ -1,0 +1,10 @@
+\chapter{Conclusions and Future Work}
+\label{ch6_Conclusions_and_Future_Work}
+
+\section{Conclusions}
+The report focused on OpenCL Implementation using Portable computing language for heterogeneous system architecture. The software components of POCL supports addition of new device to implement OpenCL standard with OpenCL Drivers for data transfer and LLVM backend for OpenCL Runtime. Xillybus consists of a customizable IP core for FPGA with host Linux drivers for Zynq Platform. An accelerator can be easily attached to the xillybus IP core in a reconfigurable fabric. This report discussed on integration of POCL software for OpenCL Drivers using Xillybus host device drivers for data transfer targeted for zynq platform. It also describes the detailed installation procedure for POCL with dependencies using install script on Zedboard. The Zedboard is ported using the prebuilt binaries of Xillinux distribution.
+
+A OpenCL host application is executed for CPU and FPGA as ‘pthread’ and ‘xillybus’ device using POCL in Zynq Platform. Data transfer APIs such as clEnqueueWriteBuffer and clEnqueueReadBuffer are profiled using PAPI Libraries. The test cases have been automated using run script. The timing behavior of the above APIs for pthread and basic devices are compared, where xillybus device responds faster than pthread device as the number of samples increases. In the above test case, CPU executes the kernel function but the kernel logic is configured in hardware. Also, the project setup is available as open source in GitHub repository. 
+ 
+
+\section{Future work}

@@ -1,0 +1,79 @@
+Jun 25 1:44:39 kernel: sd 1:0:1:0: [sdb] 7813120 512-byte logical blocks
+Jun 25 1:44:39 kernel: sd 1:0:1:0: [sdb] Write Protect is off
+Jun 25 1:44:39 kernel: sd 1:0:1:0: [sdb] Assuming drive cache: write through
+Jun 25 1:44:39 kernel: sd 1:0:1:0: [sdb] Assuming drive cache: write through
+Jun 25 1:44:39 kernel: sdb: sdb1
+Jun 25 1:44:39 kernel: sd 1:0:1:0: [sdb] Assuming drive cache: write through
+Jun 25 1:44:39 kernel: sd 1:0:1:0: [sdb] Attached SCSI removable disk
+Jun 25 1:45:00 kernel: sd 1:0:1:0: Attached scsi generic sg0 type 0
+
+$ gunzip xillinux.img.gz
+
+$ dd if=xillinux.img of=/dev/sdb bs=512
+
+$ cmp xillinux.img /dev/sdb
+$ cmp: EOF on xillinux.img
+
+$ df -h
+
+$ fdisk /dev/mmcblk0
+
+$ resize2fs /dev/mmcblk0p2
+
+INFO: Project created: xillydemo
+
+if (host_ptr == device_ptr){
+    return;
+}
+memcpy (device_ptr + offset, host_ptr, cb);
+
+fd = open("/dev/xillybus_read_32", O_RDONLY);
+if (fd < 0) {
+    return;
+}
+rc = read(fd, host_ptr, length);
+
+fd = open("/dev/xillybus_write_32", O_WRONLY); 
+if (fd < 0) {
+    return;
+}
+rc = write(fd, host_ptr, length);
+
+__kernel void poly(__global uint* input,__global uint* output)                
+{                                                                              
+   int i = get_global_id(0);                                                   
+   output[i] = (input[i] + input[i]); }
+
+
+err = clGetDeviceIDs(platform_id, CL_DEVICE_TYPE_ALL, 1, 
+                        &device_id, &ret_num_devices);
+if (err != CL_SUCCESS)
+{
+    printf("Error: Failed to retrieve device info!);
+    exit(1);
+}
+
+kernel = clCreateKernel(program, "poly", &err);
+if (!kernel || err != CL_SUCCESS)
+{
+    printf("Error: Failed to create compute kernel!);
+    exit(1);
+}
+
+err = clEnqueueWriteBuffer(command_queue, input, CL_TRUE,
+        0, sizeof(int) *count, data, 0, NULL, NULL);
+if (err != CL_SUCCESS)
+{
+    printf("Error: Failed to write to source array!\n");
+    exit(1);
+}
+
+global = count;
+err = clEnqueueNDRangeKernel(command_queue, kernel, 1, 
+            NULL, &global, NULL, 0, NULL, &event);
+if (err)
+{
+    printf("Error: Failed to execute kernel!);
+    return EXIT_FAILURE;
+}
+

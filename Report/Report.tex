@@ -1,0 +1,200 @@
+\documentclass[12pt,oneside]{report}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage[pdftex]{graphicx}
+\usepackage{suthesis-2e}
+\usepackage{hyperref}
+\usepackage{multirow}
+\usepackage{todonotes}
+\usepackage{tikz}
+\usepackage{upgreek}
+\usepackage{gantt}
+\usepackage{listings}
+\usepackage{booktabs, colortbl, tabularx}
+\definecolor{gainsboro}{rgb}{0.96,0.94,0.93}
+\usepackage{xcolor}
+%\lstset{language=C,
+%           basicstyle=\ttfamily\tiny,
+%           backgroundcolor=\color{black!5}, % set backgroundcolor
+%           keywordstyle=\color{blue}\ttfamily,
+%           stringstyle=\color{red}\ttfamily,
+%           commentstyle=\color{green}\ttfamily,
+%          breaklines=true
+%          }
+\usepackage{calc}
+\usepackage{array}
+\usepackage{rotating}
+\usepackage{url}
+\usepackage{pgf,tikz}
+\usetikzlibrary{snakes,arrows,shapes}
+\usepackage{adjustbox}
+\usepackage{dot2texi}
+\usepackage[normal]{subfigure}
+\usepackage{multirow}
+\usepackage{todonotes}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{pgfplots, pgfplotstable}
+\usepackage{amsmath}
+\usepackage{pgf,tikz}
+\usetikzlibrary{snakes,arrows,shapes}
+\usepackage{amsmath}
+\usepackage{mdwlist}
+\usepackage{xcolor}
+\usepackage{adjustbox}
+\usepackage{dot2texi}
+
+
+
+\usepackage{pgfplots, pgfplotstable}
+\usepackage{amsmath}
+\makeatletter
+\newif\if@restonecol
+\makeatother
+\let\algorithm\relax
+\let\endalgorithm\relax
+\usepackage[ruled]{algorithm2e}
+\usepackage{multirow}
+\usepackage[center]{caption}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{calc}
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+\def\scalecheck{\resizebox{\widthof{\checkmark}*\ratio{\widthof{x}}{\widthof{\normalsize x}}}{!}{\checkmark}}
+\usetikzlibrary{arrows,backgrounds}
+\usetikzlibrary{arrows,automata,calc,shapes,positioning,shadows,trees}
+
+\pgfplotsset{compat=newest}
+
+
+\tikzset{
+  basic/.style  = {draw, text width=2cm, font=\sffamily, rectangle},
+  root/.style   = {basic, rounded corners=2pt, thin, align=center,
+                   fill=white!90},
+  level 2/.style = {basic, rounded corners=6pt, thin,align=center, fill=white!90,
+                   text width=8em},
+  level 3/.style = {basic, thin, align=left, fill=white!90, text width=6.5em}
+}
+
+
+%\usepackage{acro}
+\usepackage{acronym}
+\usepackage{color}
+\definecolor{lightgray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{darkgray}{rgb}{0.4, 0.4, 0.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+\definecolor{ocherCode}{rgb}{1, 0.5, 0} % #FF7F00 -> rgb(239, 169, 0)
+\definecolor{blueCode}{rgb}{0, 0, 0.93} % #0000EE -> rgb(0, 0, 238)
+\definecolor{greenCode}{rgb}{0, 0.6, 0} % #009900 -> rgb(0, 153, 0) 
+\usepackage{upquote}
+\usepackage{listings}
+\makeatletter
+%\lstdefinelanguage{HTML5}{
+%	sensitive=true,
+%	keywords={%
+%		% JavaScript
+%		typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break,
+%		% HTML
+%		html, title, meta, style, head, body, script, canvas,
+%		% CSS
+%		border:, transform:, -moz-transform:, transition-duration:, transition-property:,
+%		transition-timing-function:
+%	},
+%	% http://texblog.org/tag/otherkeywords/
+%	otherkeywords={<, >, \/},   
+%	ndkeywords={class, export, boolean, throw, implements, import, this},   
+%	comment=[l]{//},
+%	% morecomment=[s][keywordstyle]{<}{>},  
+%	morecomment=[s]{/*}{*/},
+%	morecomment=[s]{<!}{>},
+%	morestring=[b]',
+%	morestring=[b]",    
+%	alsoletter={-},
+%	alsodigit={:}
+%}
+
+
+
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{caption}
+%\usepackage{subcaption}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{url}
+\usepackage{tikz}
+%\usetikzlibrary{dsp,chains}
+\usepackage{pgf,tikz}
+\usetikzlibrary{calc,arrows}
+\usepackage{amsmath}
+%\usepackage{titlesec}
+%\usepackage{ulem}
+%\usepackage{subfigure}
+%\usepackage{subcaption}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+%\setcounter{secnumdepth}{4}
+%\setcounter{tocdepth}{4}
+\renewcommand{\topfraction}{0.9}	% max fraction of floats at top
+\renewcommand{\bottomfraction}{0.8}	% max fraction of floats at bottom
+%Parameters for TEXT pages (not float pages):
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}     % 2 may work better
+\setcounter{dbltopnumber}{2}    % for 2-column pages
+\renewcommand{\dbltopfraction}{0.9}	% fit big float above 2-col. text
+\renewcommand{\textfraction}{0.07}	% allow minimal text w. figs
+%Parameters for FLOAT pages (not text pages):
+\renewcommand{\floatpagefraction}{0.7}	% require fuller float pages
+%N.B.: floatpagefraction MUST be less than topfraction !!
+\renewcommand{\dblfloatpagefraction}{0.7}	% require fuller float pages
+%remember to use [htp] or [htpb] for placement
+
+\newenvironment{packed_enum}{
+\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{enumerate}}
+
+\graphicspath{{figures/}}
+\begin{document}
+
+
+
+\input{files/0_title_page}
+%\onehalfspacing
+\pagenumbering{roman}
+\tableofcontents
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}	
+\listoftables
+\addcontentsline{toc}{chapter}{List of Tables}
+
+%\thispagestyle{plain}
+%\newpage
+%\thispagestyle{plain}
+%\printacronyms[include-classes=abbrev,name=Abbreviations]
+%\thispagestyle{plain}
+
+\input{files/0_abbreviations}
+
+\begin{abstract}
+ 
+
+  
+\end{abstract}
+
+\input{files/0_acknowledgement}
+
+\pagenumbering{arabic}
+
+\input{files/1_introduction}
+\input{files/2_background}
+\input{files/3_OpenCL_Imp_POCL}
+\input{files/4_OpenCL_Drivers_for_Zynq}
+\input{files/5_Experiment_and_Results}
+\input{files/6_Conclusion}
+\input{files/7_Reference}
+
+\end{document}

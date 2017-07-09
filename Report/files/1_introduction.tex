@@ -1,0 +1,21 @@
+\chapter{Introduction}
+\label{ch1_introduction}
+
+Modern computing environment are becoming heterogeneity with multi-core microprocessors, Central Processing Units(CPU), Graphics Processing Unit(GPU), Digital Signal Processors and Reconfigurable Hardware (FPGAs). In earlier decades, the technology trend scales the performance with increase in transistor density and has more logic functionality in a chip. Since around 2005-2007, Dennard Scaling has broken down due to increase in static power at higher clock frequencies, the Multiple processor cores era begins with the similar cores operating at different frequencies. Multicore processing technology exploits thread level parallelism (TLP) by allowing the programmer to dynamically adjust the voltage and frequency with respect to performance. This technique is called as Dynamic voltage and frequency scaling (DVFS). It is also possible to switch off some part of silicon in the chip, called ‘dark silicon’ so that the heat dissipation can be avoided \cite{1}.
+
+Due to different workload behavior of the applications, the throughput depends on the computation and communication efficiency of the underlying architecture. For example, Control intensive applications can execute faster on CPUs and data intensive applications can execute efficiently in vector architecture. Thus, the modern computing method shifts to Heterogeneous System Architecture(HSA). HSA supports the programmer to select better architecture to execute tasks in an optimal way. Co-processors and accelerators are used extensively for computationally intensive applications. However, the key problem is to communicate the data from the host to accelerators and to manage the threads. Hence, a heterogeneous programming framework called Open Computing Language (OpenCL) standard is maintained for writing parallel codes. OpenCL framework supports multicore platforms, digital signal processors, GPUs and FPGA.
+
+\section{Motivation}
+The open source community has developed many software frameworks for OpenCL implementation. Portable Computing Language (POCL) aims to become an MIT licensed OpenCL standard. POCL can be easily portable for CPU, heterogeneous GPUs and accelerators. In this thesis work, we explore POCL software framework to add a new device with OpenCL driver integration.
+
+\section{Contribution}
+The main contribution of this thesis is basic OpenCL implementation for Field Programmable Gate Array (FPGA) and Central Processing Unit (CPUs). The contributions are summarized as follows:
+\begin{itemize} 
+	\item An introduction for adding a FPGA device to POCL software framework in device layer implementation.
+	\item Setting up OpenCL standard in Ubuntu distribution on Zynq heterogeneous platform.
+	\item Integration of OpenCL drivers in device layer of POCL using xillybus Linux driver.
+	\item Testing of OpenCL APIs for data transfer from host to FPGA device.
+\end{itemize}
+
+\section{Organization}
+The thesis is organized as follows. Chapter 2 discusses background and previous work on implementation of OpenCL standard. In Chapter 3 we describe the concepts of OpenCL Implementation using POCL and its relation to POCL software framework. Chapter 4 discusses the advantage of xillybus project that can be used as an OpenCL driver. Chapter 5, we implement OpenCL library on Zed board and testing data transfer OpenCL APIs. Finally, Chapter 6 concludes the thesis with future work.

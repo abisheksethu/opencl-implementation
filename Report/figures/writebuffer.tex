@@ -1,0 +1,104 @@
+%% \hfill
+%	 \begin{figure}[!b]
+%	 \centering 
+%	 \begin{tikzpicture}[scale = 1.1]
+%	 \begin{semilogyaxis}[
+%		xlabel=Datasize$(N)$,
+%		ylabel=Time $(ms)$,
+%	 % 	scaled ticks=base 10:-5,
+%	 xtick pos=left,
+%	 ytick pos=left,
+%	 ymax = 600,
+%	 xmax = 16777216,
+%	 yticklabels={1,10,100,1000},
+%	 %	symbolic y coords={0.4239,0.847,1.67,3.33,6.69,13.33,26.63,54.41,70,150,290,560},
+%	 %  symbolic y coords = {-1,-0.698,-0.522,-0.397,-0.301,-0.221,-0.154,-0.0969,-0.0457,0.0,0.3010,0.4771,0.6021,0.6990,0.7782,0.8450,0.9030,0.9542,1.0,1.3010,1.4771,1.6021,1.6990,1.7782,1.8450,1.9030,1.9542,2.0,2.3010,2.4771,2.6021,2.6990,2.7782,2.8452,2.9030,2.9542,3.0},
+%	 %    ytick=data, 
+%	 %    yticklabels={0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100,200,300,400,500,600,700,800,900,1000},
+%	 symbolic x coords={131072,262144,524288,1048576,2097152,4194304,8388608,16777216},
+%	 enlargelimits=true,
+%	 xtick=data,
+%	 xticklabels={$2^{17}$,$2^{18}$,$2^{19}$,$2^{20}$,$2^{21}$,$2^{22}$,$2^{23}$,$2^{24}$},
+%	 width = 10cm,
+%	 xmode = normal,
+%	 legend pos=north west,
+%	 legend style={draw=none}
+%	 ] 
+	 
+	 
+	 % \hfill
+	 \begin{figure}[!b]
+	 \centering 
+	 \begin{tikzpicture}[scale = 1.1]
+	 \begin{semilogyaxis}[
+    xlabel=Number of Samples,
+	ylabel=Time $(μs)$,
+	 % 	scaled ticks=base 10:-5,
+	 xtick pos=left,
+	 ytick pos=left,
+	 ymax = 300,
+	 xmax = 16384,
+	 %	 ymode=log,log ticks with fixed point,
+	 %	grid=major,
+	   %symbolic y coords={1024, 2048, 3072, 4096, 5120, 6144, 7168, 8192, 9216, 10240, 11264, 12288, 13312, 14336, 15360, 16384},
+	 %   ytick={data},
+	 symbolic x coords={1024, 2048, 3072, 4096, 5120, 6144, 7168, 8192, 9216, 10240, 11264, 12288, 13312, 14336, 15360, 16384},
+	 xtick=data,
+	 xticklabels={1024, 2048, 3072, 4096, 5120, 6144, 7168, 8192, 9216, 10240, 11264, 12288, 13312, 14336, 15360, 16384},
+	 %	symbolic y coords={0.4239,0.847,1.67,3.33,6.69,13.33,26.63,54.41,70,150,290,560},
+	 width = 10cm,
+	 xmode = normal,
+	 legend pos=north west,
+	 legend style={draw=none}
+	 ]    
+   
+	\addplot plot coordinates {
+	    (1024,     84.7)
+		(2048,     99.4)
+		(3072,    110.8)
+		(4096,    123.4)
+		(5120,    143.7)
+		(6144,    154.7)
+		(7168,   169.5)
+		(8192,   189.7)
+		(9216,     212.1)
+		(10240,     200.9)
+		(11264,    217.3)
+		(12288,    224.8)
+		(13312,    236)
+		(14336,    248.7)
+		(15360,   260)
+		(16384,   271)
+		};
+
+	\addplot plot coordinates {
+	    (1024,     119.7)
+		(2048,     123.6)
+		(3072,    136.4)
+		(4096,    140.2)
+		(5120,    147.4)
+		(6144,    154.8)
+		(7168,   164.1)
+		(8192,   169.4)
+		(9216,     178.9)
+		(10240,    186)
+		(11264,    191.5)
+		(12288,    201)
+		(13312,    206.2)
+		(14336,    217.3)
+		(15360,   223)
+		(16384,   235.7)
+		};
+
+  
+
+%	\legend{MXP(Byte)\\Intel i3(Byte)\\ARMv7(Byte)\\Neon(Byte)\\} 
+    \legend{pthread\\xillybus\\} 
+	\end{semilogyaxis}
+	\end{tikzpicture} 
+	\label{writebuffer} 
+% \hspace{4.5cm}       $f(samples,time) = a * x ^ 2 + b* x + c$
+\caption{Comparison of Write buffer API} 
+\label{dag:write}
+
+\end{figure}
