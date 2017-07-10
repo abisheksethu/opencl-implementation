@@ -42,8 +42,8 @@ rc = write(fd, host_ptr, length);
 __kernel void poly(__global uint* input,__global uint* output)                
 {                                                                              
    int i = get_global_id(0);                                                   
-   output[i] = (input[i] + input[i]); }
-
+   output[i] = (input[i] + input[i]);
+}
 
 err = clGetDeviceIDs(platform_id, CL_DEVICE_TYPE_ALL, 1, 
                         &device_id, &ret_num_devices);
