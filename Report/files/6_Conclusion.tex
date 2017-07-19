@@ -8,3 +8,4 @@ A OpenCL host application is executed for CPU and FPGA as ‘pthread’ and ‘x
  
 
 \section{Future work}
+An Accelerator can be connected to the xillybus IP core design. The hardware information like memory values of an accelerator should be updated in POCL. OpenCL Runtime for a new accelerator device is supported by integrating LLVM backend in POCL's kernel compiler. This requires LLVM backend for a new accelerator to generate code. With the timing values of OpenCL APIs and kernel functions, the execution time on an accelerator can be found.
