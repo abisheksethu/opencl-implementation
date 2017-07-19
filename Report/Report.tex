@@ -181,7 +181,7 @@
 
 \begin{abstract}
  
-
+Heterogeneous System Architecture has become a new era for computing in an optimal way and Reconfigurable Platforms are promising for better acceleration in HSA Platforms. OpenCL Standard are introduced for writing parallel programs to heterogeneous systems. This framework simplifies the usage of accelerators for programmers in software. Portable Computing Language software is used for OpenCL implementation. The modularized form of POCL's software architecture supports the addition of new device for OpenCL Implementation. In thesis work, we integrate OpenCL Drivers for Zynq platform using xillybus in POCL. Xillybus project provides FPGA IP core design with efficient DMA based solution for data transport between Linux or Windows to FPGA device. The new device called 'xillybus' is available as OpenCL device for Programmable Logic. While, Processing System is supported using 'pthread', which is available as a default device in POCL. The POCL package is installed on Xillinux distribution for Zedboard and steps to integrate xillybus drivers is also discussed. An OpenCL host application, which has a kernel function to perform vector addition, is developed that can execute on both CPU and FPGA devices. POCL's OpenCL data transfer APIs are profiled using PAPI library, where read and write APIs of xillybus device transfers faster than the pthread device when the number of samples is increased. An introduction to OpenCL runtime using POCL is discussed. This work enables using accelerator with xillybus project that can support OpenCL Standard with OpenCL Runtime compiler integration on Zynq Platform.
   
 \end{abstract}
 
